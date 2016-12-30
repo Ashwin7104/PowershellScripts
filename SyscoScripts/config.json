@@ -1,0 +1,498 @@
+{
+  "InternalInfo": {
+    "Project": "SYSCO Project",
+    "Modified": "Sep 2016",
+    "Author": "Infosys Limited",
+    "Support": "Infosys Limited",
+    "Terms": "Please do not edit any fields"
+  },
+  "Configuration": {
+    "PermissionLevel": "CommSyscoRead",
+    "RootSiteURL": "https://kabali11.sharepoint.com/sites/test"
+
+  },
+  "RollBack": {
+    "Navigation": [
+      {
+        "Header": "Empty",
+        "Name": "Home",
+        "URL": "SitePages/Home.aspx"
+      },
+      {
+        "Header": "Empty",
+        "Name": "Documents",
+        "URL": "Shared%20Documents/Forms/AllItems.aspx"
+      },
+      {
+        "Header": "Empty",
+        "Name": "Site Contents",
+        "URL": "_layouts/15/viewlsts.aspx"
+      },
+      {
+        "Header": "Empty",
+        "Name": "Recycle Bin",
+        "URL": "_layouts/15/AdminRecycleBin.aspx"
+      }
+    ]
+  },
+  "Logging": {
+    "_enabled": "Boolean / Valid is: true or false",
+    "enabled": "true",
+    "Settings": {
+      "_Directory": "The log file will be present in the same directory as Script.ps1",
+      "Directory": "\\<<ScriptFolderPath>>\\Log.log"
+    }
+  },
+
+  "Department": {
+    "GroupNames": [ "CommMaintenanceAdmin", "CommHRCoordinators", "CommOpCoUsers" ],
+    "Navigation": [
+      {
+        "Header": "Empty",
+        "Name": "My Folders",
+        "URL": "SitePages/SysMyFldrs.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "New",
+        "URL": "SitePages/SysCommFrm.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "Inbox",
+        "URL": "SitePages/SysCommInbx.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "Draft",
+        "URL": "SitePages/SysCommDrft.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "Complete",
+        "URL": "SitePages/SysCommComplt.aspx"
+      },
+      {
+        "Header": "Tool Configuration",
+        "Name": "Document Type",
+        "URL": "SitePages/SetDocumentTypes.aspx"
+      }
+    ],
+    "Libraries": [
+      {
+        "DisplayName": "Communication",
+        "InternalName": "CommAppCommunication",
+        "Type": "GenericList",
+        "Description": "Communication information is stored in this list",
+        "Navigation": false,
+        "Permission": "inherit",
+        "Fields": [
+          "<Field Name='Communication ID' DisplayName='CommunicationID' Type='Text'/>",
+          "<Field Name='From' DisplayName='From' Type='Text'/>",
+          "<Field Name='From User' DisplayName='FromUser' Type='Text'/>",
+          "<Field Name='OpCo Role' DisplayName='OpCoRole' Type='Text'/>",
+          "<Field Name='Subject' DisplayName='Subject' Type='Text'/>",
+          "<Field Name='Submit To' DisplayName='SubmitTo' Type='Text'/>",
+          "<Field Name='Document Type' DisplayName='DocumentType' Type='Text'/>",
+          "<Field Name='Creation Date' DisplayName='CreationDate' Type='DateTime'/>",
+          "<Field Name='Submission Date' DisplayName='SubmissionDate' Type='DateTime'/>",
+          "<Field Name='Status' DisplayName='Status' Type='Text'/>",
+          "<Field Name='Processing Week' DisplayName='ProcessingWeek' Type='Text'/>",
+          "<Field Name='Completed (Y/N)' DisplayName='CompletedYN' Type='Text'/>",
+          "<Field Name='Processing Version' DisplayName='ProcessingVersion' Type='Text'/>",
+          "<Field Name='Year' DisplayName='Year' Type='Text'/>",
+          "<Field Name='Submit To User' DisplayName='SubmitToUser' Type='Text'/>",
+          "<Field Name='From User Display Name' DisplayName='FromUserDisplayName' Type='Text'/>",
+          "<Field Name='Description' DisplayName='Description' Type='Note' RichText='FALSE' NumLines='6' />",
+          "<Field Name='From Hr User' DisplayName='FromHrUser' Type='Text'/>"
+        ]
+      },
+      {
+        "DisplayName": "Comments",
+        "InternalName": "CommAppComments",
+        "Type": "GenericList",
+        "Description": "Comments against communications are stored in this list",
+        "Navigation": false,
+        "Permission": "inherit",
+        "Fields": [
+          "<Field Name='Communication ID' DisplayName='CommunicationID' Type='Text'/>",
+          "<Field Name='Comments ID' DisplayName='CommentsID' Type='Text'/>",
+          "<Field Name='Comment' DisplayName='Comment' Type='Note' RichText='FALSE' NumLines='6'/>",
+          "<Field Name='Status' DisplayName='Status' Type='Text'/>",
+          "<Field Name='Creation Date' DisplayName='CreationDate' Type='DateTime'/>",
+          "<Field Name='Submission Date' DisplayName='SubmissionDate' Type='DateTime'/>",
+          "<Field Name='From' DisplayName='From' Type='Text'/>",
+          "<Field Name='Document Type' DisplayName='DocumentType' Type='Text'/>",
+          "<Field Name='Added By' DisplayName='AddedBy' Type='Text'/>"
+        ]
+      },
+      {
+        "DisplayName": "Communication Attachments",
+        "InternalName": "CommAppCommAthmnts",
+        "Type": "DocumentLibrary",
+        "Description": "To store all attachments in a communication",
+        "Navigation": true,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Permission": "inherit",
+        "Fields": [
+          "<Field Name='Communication ID' DisplayName='CommunicationID' Type='Text'/>",
+          "<Field Name='Creation Date' DisplayName='CreationDate' Type='DateTime'/>",
+          "<Field Name='Submission Date' DisplayName='SubmissionDate' Type='DateTime'/>",
+          "<Field Name='From' DisplayName='From' Type='Text'/>",
+          "<Field Name='Document Type' DisplayName='DocumentType' Type='Text'/>"
+        ]
+      },
+      {
+        "DisplayName": "Comments Attachments",
+        "InternalName": "CommAppComntsAthmnts",
+        "Type": "DocumentLibrary",
+        "Description": "To store all attachments in a comments",
+        "Navigation": true,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Permission": "inherit",
+        "Fields": [
+          "<Field Name='Comments ID' DisplayName='CommentsID' Type='Text'/>",
+          "<Field Name='Communication ID' DisplayName='CommunicationID' Type='Text'/>",
+          "<Field Name='Creation Date' DisplayName='CreationDate' Type='DateTime'/>",
+          "<Field Name='Submission Date' DisplayName='SubmissionDate' Type='DateTime'/>",
+          "<Field Name='From' DisplayName='From' Type='Text'/>",
+          "<Field Name='Document Type' DisplayName='DocumentType' Type='Text'/>"
+        ]
+      },
+      {
+        "DisplayName": "SKL - Alaska",
+        "InternalName": "SKL - Alaska",
+        "Type": "DocumentLibrary",
+        "Description": "SKL - Alaska",
+        "Navigation": true,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Permission": "inherit"
+
+      },
+      {
+        "DisplayName": "SPV - Albany",
+        "InternalName": "SPV - Albany",
+        "Type": "DocumentLibrary",
+        "Description": "SPV - Albany",
+        "Navigation": true,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Permission": "inherit"
+
+      }
+    ]
+  },
+  "OpCo": {
+    "GroupNames": [ "CommMaintenanceAdmin", "CommOpCoUsers","OpCoDocLibraryUsers" ],
+    "Navigation": [
+     {
+        "Header": "Empty",
+        "Name": "My Folders",
+        "URL": "SitePages/SysMyFldrs.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "New",
+        "URL": "SitePages/SysCommFrm.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "Inbox",
+        "URL": "SitePages/SysCommInbx.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "Draft",
+        "URL": "SitePages/SysCommDrft.aspx"
+      },
+      {
+        "Header": "Communication",
+        "Name": "Complete",
+        "URL": "SitePages/SysCommComplt.aspx"
+      }
+    ],
+    "Libraries": [
+      {
+        "DisplayName": "Department URL",
+        "InternalName": "CommAppSiteCollection",
+        "Type": "GenericList",
+        "Description": "One time configuration list. The relative URL for the HR site collection is configured here when the tool is rolled out to the production for the first time.",
+        "Navigation": false,
+        "Fields": [
+          "<Field Name='HR Site URL' DisplayName='HRsitecolletionurl' Type='Text'/>"
+        ]
+      },
+      {
+        "DisplayName": "AAP",
+        "InternalName": "AAP",
+        "Type": "DocumentLibrary",
+        "Description": "Library to keep files related to Affirmative Action Plan",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Accident Reports",
+        "InternalName": "AccidentReports",
+        "Type": "DocumentLibrary",
+        "Description": "Library to keep injury reports received from employees, and sent to a third party via https",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Background Check",
+        "InternalName": "BackgroundCheck",
+        "Type": "DocumentLibrary",
+        "Description": "Authorization Forms received during the recruiting process, and sent to a third party",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Benefits",
+        "InternalName": "Benefits",
+        "Type": "DocumentLibrary",
+        "Description": "Files shared with AON/other third parties, and/or used internally",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Bonus",
+        "InternalName": "Bonus",
+        "Type": "DocumentLibrary",
+        "Description": "Data to generate Monthly Financial Reporting",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "CMP",
+        "InternalName": "CMP",
+        "Type": "DocumentLibrary",
+        "Description": "CMP forms",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "DOT",
+        "InternalName": "DOT",
+        "Type": "DocumentLibrary",
+        "Description": "Files related to the Department of Transportation Form to be sent to Talent Acquisition",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Events",
+        "InternalName": "Events",
+        "Type": "DocumentLibrary",
+        "Description": "Event Registration Files",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "FMLA",
+        "InternalName": "FMLA",
+        "Type": "DocumentLibrary",
+        "Description": "Family and Medical Leave Act files",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Garnishments",
+        "InternalName": "Garnishments",
+        "Type": "DocumentLibrary",
+        "Description": "Letters that requires Sysco to garnish the wages of an associate",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Injury Report",
+        "InternalName": "InjuryReport",
+        "Type": "DocumentLibrary",
+        "Description": "Injury reports",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Merit Increase",
+        "InternalName": "MeritIncrease",
+        "Type": "DocumentLibrary",
+        "Description": "Review sheet files of current Company data and Merit increase information",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Legal",
+        "InternalName": "Legal",
+        "Type": "DocumentLibrary",
+        "Description": "Data to be used to defend the company when a former employee has issued a statement of claim against Sysco",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Offer Letters",
+        "InternalName": "OfferLetters",
+        "Type": "DocumentLibrary",
+        "Description": "Pass files when hiring",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Payroll - Termination",
+        "InternalName": "PayrollTermination",
+        "Type": "DocumentLibrary",
+        "Description": "Data shared with payroll about Termination process",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Payroll – Change Notice",
+        "InternalName": "PayrollChangeNotice",
+        "Type": "DocumentLibrary",
+        "Description": "Data shared with payroll about Change Notice process",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Payroll - Direct Deposits",
+        "InternalName": "PayrollDirectDeposits",
+        "Type": "DocumentLibrary",
+        "Description": "Direct Deposit forms to be sent to Payroll",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Payroll – W4 Forms",
+        "InternalName": "PayrollW4Forms",
+        "Type": "DocumentLibrary",
+        "Description": "W4 Form - Non SAP companies",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Archive" ]
+      },
+      {
+        "DisplayName": "Physical and Drugs Screen",
+        "InternalName": "PhysicalandDrugsScreen",
+        "Type": "DocumentLibrary",
+        "Description": "Physical and Drugs Screen files",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Random Drug & Alcohol Testing",
+        "InternalName": "RandomDrugAlcoholTesting",
+        "Type": "DocumentLibrary",
+        "Description": "Random Drug & Alcohol Testing files",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "Union Dues",
+        "InternalName": "Union Dues",
+        "Type": "DocumentLibrary",
+        "Description": "Union Dues files",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      },
+      {
+        "DisplayName": "VOE",
+        "InternalName": "VOE",
+        "Type": "DocumentLibrary",
+        "Description": "Verification of Employment files",
+        "Navigation": false,
+        "NewFolder": false,
+        "CheckOut": false,
+        "EnableVersion": true,
+        "Flag": "Folders",
+        "Folders": [ "Files", "Third Parties", "Archive" ]
+      }
+    ]
+  }
+}

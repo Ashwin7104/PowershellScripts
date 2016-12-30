@@ -1,0 +1,1 @@
+Powershell.exe -noexit -executionpolicy Bypass -File  Script.ps1
